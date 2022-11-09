@@ -28,7 +28,7 @@ const userList = [
     },
 ];
 
-describe('Testando os endpoints de user', function () {
+describe('Testando os endpoints de usuarios', function () {
     it('Testando o cadastro de um usuário ', async function () {
         sinon.stub(connection, 'execute').resolves([{ insertId: 1 }]);
 
@@ -37,12 +37,11 @@ describe('Testando os endpoints de user', function () {
             .post('/usuarios')
             .send(
                 {
-                    id_usuario: 1,
                     nome: 'Luke',
                     sobrenome: 'Skywalker',
                     email: 'luke.skywalker@trybe.com',
                     telefone: '851 678 4453',
-                    cpf: '059.322.455-02'
+                    cpf: '059.322.455-01'
                 },
             );
 
@@ -52,7 +51,7 @@ describe('Testando os endpoints de user', function () {
             deep.equal({ message: 'Usuário cadastrado com sucesso com o id 1' });
     });
 
-    it('Testando a listagem de todos usuários', async function () {
+    it('Testando a listagem de todos os usuários', async function () {
         sinon.stub(connection, 'execute').resolves([userList]);
         const response = await chai
             .request(app)
@@ -70,6 +69,26 @@ describe('Testando os endpoints de user', function () {
 
         expect(response.status).to.equal(200);
         expect(response.body).to.deep.equal(userList[0]);
+    });
+
+    it('Testando a alteração de um usuário com o id 1', async function () {
+        sinon.stub(connection, 'execute').resolves([{ affectedRows: 1 }]);
+        const response = await chai
+            .request(app)
+            .put('/usuarios/1')
+            .send(
+                {
+                    nome: 'Lucão',
+                    sobrenome: 'Andarilho dos céus',
+                    email: 'lucao.andarilho@trybe.com',
+                    telefone: '851 678 4453',
+                    cpf: '059.322.455-01'
+                },
+            );
+
+        expect(response.status).to.equal(200);
+        expect(response.body).to
+            .deep.equal({ message: 'Usuário de id 1 atualizado com sucesso' });
     });
 
     afterEach(sinon.restore);
