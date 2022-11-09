@@ -8,4 +8,6 @@ const insert = (user) => conn.execute(
 
 const findAll = () => conn.execute('SELECT * FROM usuarios');
 
-module.exports = { insert, findAll };
+const findById = (id_usuario) => conn.execute('SELECT * FROM usuarios WHERE id_usuario = ?', [id_usuario]);
+
+module.exports = { insert, findAll, findById };

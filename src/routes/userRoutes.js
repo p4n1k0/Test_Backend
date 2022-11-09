@@ -32,4 +32,23 @@ router.get('/', async (_req, res) => {
     }
 });
 
+router.get('/:id_usuario', async (req, res) => {
+  try {
+    const { id_usuario } = req.params;
+    const [[result]] = await userDB.findById(id_usuario);
+
+    if (result) {
+      res.status(200).json(result);
+
+    } else {
+      res.status(400).json({ message: 'Usuário não encontrado' });
+
+    }
+  } catch (err) {
+    console.log(err);
+
+    res.status(400).json({ message: err.sqlMessage });
+  }
+});
+
 module.exports = router;

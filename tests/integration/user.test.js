@@ -61,6 +61,16 @@ describe('Testando os endpoints de user', function () {
         expect(response.status).to.equal(200);
         expect(response.body).to.deep.equal(userList);
     });
-    
+
+    it('Testando a listagem do usuario com id 1', async function () {
+        sinon.stub(connection, 'execute').resolves([[userList[0]]]);
+        const response = await chai
+            .request(app)
+            .get('/usuarios/1');
+
+        expect(response.status).to.equal(200);
+        expect(response.body).to.deep.equal(userList[0]);
+    });
+
     afterEach(sinon.restore);
 });
