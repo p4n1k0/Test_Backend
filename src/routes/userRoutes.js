@@ -70,4 +70,21 @@ router.put('/:id_usuario', async (req, res) => {
     }
 });
 
+router.delete('/:id_usuario', async (req, res) => {
+    try {
+        const { id_usuario } = req.params;
+        const [result] = await userDB.remove(id_usuario);
+
+        if (result.affectedRows > 0) {
+            res.status(200).json({ message: `Usuário de id ${id_usuario} excluído com sucesso` });
+
+        } else {
+            res.status(400).json({ message: 'Usuário não encontrada' });
+        }
+
+    } catch (err) {
+        res.status(500).json({ message: err.sqlMessage });
+    }
+});
+
 module.exports = router;

@@ -17,4 +17,6 @@ const update = (user, id_usuario) => conn.execute(
 
 );
 
-module.exports = { insert, findAll, findById, update };
+const remove = (id_usuario) => conn.execute('DELETE FROM usuarios WHERE id_usuario = ?', [id_usuario]);
+
+module.exports = { insert, findAll, findById, update, remove };

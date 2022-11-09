@@ -91,5 +91,16 @@ describe('Testando os endpoints de usuarios', function () {
             .deep.equal({ message: 'Usuário de id 1 atualizado com sucesso' });
     });
 
+    it('Testando a exclusão de usuário com id 1', async function () {
+        sinon.stub(connection, 'execute').resolves([{ affectedRows: 1 }]);
+        const response = await chai
+            .request(app)
+            .delete('/usuarios/1');
+
+        expect(response.status).to.equal(200);
+        expect(response.body).to
+            .deep.equal({ message: 'Usuário de id 1 excluído com sucesso' });
+    });
+
     afterEach(sinon.restore);
 });
