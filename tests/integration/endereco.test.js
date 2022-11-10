@@ -101,5 +101,16 @@ describe('Testando os endpoints de enderecos-usuario', function () {
             .deep.equal({ message: 'Endereço de id 1 atualizado com sucesso' });
     });
 
+    it('Testando a exclusão de endereço com id 1', async function () {
+        sinon.stub(connection, 'execute').resolves([{ affectedRows: 1 }]);
+        const response = await chai
+            .request(app)
+            .delete('/enderecos-usuario/1');
+
+        expect(response.status).to.equal(200);
+        expect(response.body).to
+            .deep.equal({ message: 'Endereço de id 1 excluído com sucesso' });
+    });
+
     afterEach(sinon.restore);
 });

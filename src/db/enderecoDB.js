@@ -23,4 +23,8 @@ const update = (endereco, id_endereco_usuario) => conn.execute(
   endereco.bairro, endereco.complemento, endereco.id_usuario, id_endereco_usuario],
 );
 
-module.exports = { insert, update, findByUserId, findById };
+const remove = (id_endereco_usuario) => conn.execute(
+  'DELETE FROM enderecos_usuario WHERE id_endereco_usuario = ?', [id_endereco_usuario]
+);
+
+module.exports = { insert, update, findByUserId, findById, remove };
