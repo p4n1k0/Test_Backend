@@ -19,5 +19,5 @@ cep VARCHAR(45) NOT NULL,
 bairro VARCHAR(255) NOT NULL,
 complemento VARCHAR(20) NOT NULL,
 id_usuario INT NOT NULL,
-FOREIGN KEY (id_usuario) REFERENCES usuarios (id_usuario)
+CONSTRAINT fk_enderecos_usuario_id_usuario FOREIGN KEY (id_usuario) REFERENCES usuarios (id_usuario)
 );
