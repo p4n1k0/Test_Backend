@@ -7,6 +7,10 @@ const insert = (endereco) => conn.execute(
   endereco.bairro, endereco.complemento, endereco.id_usuario],
 );
 
+const findById = (id_usuario) => conn.execute(
+  'SELECT * FROM enderecos_usuario WHERE id_usuario = ?', [id_usuario],
+);
+
 const update = (endereco, id_endereco_usuario) => conn.execute(
   `UPDATE enderecos_usuario
     SET logradouro = ?, numero = ?, cidade = ?, uf = ?, cep = ?, bairro = ?, complemento = ?,
@@ -15,4 +19,4 @@ const update = (endereco, id_endereco_usuario) => conn.execute(
   endereco.bairro, endereco.complemento, endereco.id_usuario, id_endereco_usuario],
 );
 
-module.exports = { insert, update };
+module.exports = { insert, update, findById };

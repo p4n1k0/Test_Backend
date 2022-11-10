@@ -9,6 +9,31 @@ const { expect, use } = chai;
 
 use(chaiHttp);
 
+const enderecoList = [
+    {
+        id_endereco_usuario: 1,
+        logradouro: 'Rua Aquela Lá',
+        numero: '132',
+        cidade: 'Ratanabá',
+        uf: 'NS',
+        cep: '85055-003',
+        bairro: 'Cidade Nova',
+        complemento: '11a',
+        id_usuario: 1
+    },
+    {
+        id_endereco_usuario: 2,
+        logradouro: 'Rua Aquela Lá',
+        numero: '312',
+        cidade: 'Ranabá',
+        uf: 'NS',
+        cep: '85055-003',
+        bairro: 'Nova',
+        complemento: '11c',
+        id_usuario: 2
+    },
+];
+
 describe('Testando os endpoints de enderecos-usuario', function () {
     it('Testando o cadastro de um endereço', async function () {
         sinon.stub(connection, 'execute').resolves([{ insertId: 1 }]);
@@ -31,6 +56,16 @@ describe('Testando os endpoints de enderecos-usuario', function () {
         expect(response.status).to.equal(200);
         expect(response.body).to.
             deep.equal({ message: 'Endereço cadastrado com sucesso com o id 1' });
+    });
+
+    it('Testando a listagem de endereços  pelo id 1 do usuario', async function () {
+        sinon.stub(connection, 'execute').resolves([[enderecoList[0]]]);
+        const response = await chai
+            .request(app)
+            .get('/enderecos-usuario/1');
+
+        expect(response.status).to.equal(200);
+        expect(response.body).to.deep.equal(enderecoList[0]);
     });
 
     it('Testando a alteração de um endereço com o id 1', async function () {
