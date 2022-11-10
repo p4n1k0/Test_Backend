@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# 🚧 README em construção 🚧
-=======
 ## Boas vindas ao repositório do Teste do Processo Seletivo Backend!
 por [Gabriel Tarick](https://www.linkedin.com/in/gabriel-tarick/)
 
