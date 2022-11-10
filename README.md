@@ -83,4 +83,3 @@ por [Gabriel Tarick](https://www.linkedin.com/in/gabriel-tarick/)
 :warning: **O avaliador automático não necessariamente avalia o teste na ordem em que os requisitos aparecem no arquivo. Isso acontece para deixar o processo de avaliação mais rápido. Então, não se assuste se isso acontecer, ok?**
 
 </details>
->>>>>>> master
