@@ -1,5 +1,4 @@
 const express = require('express');
-const { end } = require('../db/connection');
 const enderecoDB = require('../db/enderecoDB')
 
 const router = express.Router();

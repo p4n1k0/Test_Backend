@@ -1,3 +1,4 @@
+require('dotenv').config();
 const app = require('./app');
 const connection = require('./db/connection');
 
@@ -11,5 +12,6 @@ app.listen(port, async () => {
 
   if (result) {
     console.log('MySQL connection OK');
+    console.log(`Valor da variável de ambiente $USER: ${process.env.USER}`);
   }
 });

@@ -46,7 +46,6 @@ describe('Testando os endpoints de usuarios', function () {
             );
 
         expect(response.status).to.equal(200);
-
         expect(response.body).to.
             deep.equal({ message: 'Usuário cadastrado com sucesso com o id 1' });
     });

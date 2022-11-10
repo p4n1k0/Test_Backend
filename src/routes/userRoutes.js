@@ -1,9 +1,10 @@
 const express = require('express');
 const userDB = require('../db/userDB');
+const { emailValidation } = require('../middleware/emailValidation');
 
 const router = express.Router();
 
-router.post('/', async (req, res) => {
+router.post('/', emailValidation, async (req, res) => {
     const user = req.body;
 
     try {
