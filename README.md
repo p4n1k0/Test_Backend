@@ -8,9 +8,9 @@ por [Gabriel Tarick](https://www.linkedin.com/in/gabriel-tarick/)
 - Rotas utilizando uma abordagem de desenvolvimento orientado a testes.
 
 ---
-<details>
-  <strong>👨‍💻 O que foi desenvolvido</strong><br />
 
+  <strong>👨‍💻 O que foi desenvolvido</strong><br />  
+<details>
   Construção de uma aplicação de rotas (usuarios, enderecos) em que será possível cadastrar, visualizar, pesquisar, editar e excluir informações. Para isso foi feito:
   1. Desenvolvimento de uma API de um `CRUD` (**C**reate, **R**ead, **U**pdate e **D**elete) de usuários e endereços (usuarios, enderecos_usuario);
   2. Desenvolvimento de alguns endpoints que fazem leitura e escrevem em um arquivo utilizando o módulo `express`.
