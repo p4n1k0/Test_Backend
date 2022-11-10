@@ -18,8 +18,8 @@ por [Gabriel Tarick](https://www.linkedin.com/in/gabriel-tarick/)
 </details>
 ---
 
-<details>
   <strong>:whale: Rodando no Docker vs Localmente</strong><br />
+<details>
   
   ## Com Docker
  
@@ -51,17 +51,17 @@ por [Gabriel Tarick](https://www.linkedin.com/in/gabriel-tarick/)
 
 </details>
 
-<details>
- <strong>‼️ Para clonar o repositório, basta</strong><br />
 
+<strong>‼️ Para clonar o repositório, basta</strong><br />
+<details>
   - `git clone git@github.com:p4n1k0/Test_Backend.git`.
   - Entre na pasta do repositório que você acabou de clonar:
     - `cd teste-backend-api`  
 
 </details>
 
+<strong>🔁 Live reload</strong><br />
 <details>
- <strong>🔁 Live reload</strong><br />
 
   Use o [Nodemon](https://nodemon.io) para monitorar as mudanças nos arquivos e reiniciar o servidor automaticamente.
 
@@ -70,17 +70,16 @@ por [Gabriel Tarick](https://www.linkedin.com/in/gabriel-tarick/)
   Para iniciar o servidor em modo de desenvolvimento basta executar o comando `npm run dev`. Este comando fará com que o servidor reinicie de forma automática ao salvar uma modificação realizada nos arquivos do teste.
 </details>
 
-<details>
   ### Executando todos os testes
+<details>
 
   Para poder executar os testes, inicie a aplicação com `npm run dev`, em seguida, basta executar o comando `npm test` e **todos** os testes serão executados.  
 
   :warning: **Importante:** os comandos de testes podem ser executados tanto no terminal do seu computador quanto do **_Docker_**.
 </details>
 
-<details>
- <strong>🗣 Me dê feedback sobre o teste!</strong><br />
-
+<strong>🗣 Me dê feedback sobre o teste!</strong><br />
+<details> 
 :warning: **O avaliador automático não necessariamente avalia o teste na ordem em que os requisitos aparecem no arquivo. Isso acontece para deixar o processo de avaliação mais rápido. Então, não se assuste se isso acontecer, ok?**
 
 </details>
