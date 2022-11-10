@@ -25,7 +25,24 @@ router.post('/', async (req, res) => {
 router.get('/:id_usuario', async (req, res) => {
     try {
         const { id_usuario } = req.params;
-        const [[result]] = await enderecoDB.findById(id_usuario);
+        const [[result]] = await enderecoDB.findByUserId(id_usuario);
+
+        if (result) {
+            res.status(200).json(result);
+        } else {
+            res.status(400).json({ message: 'Endereço não encontrado' });
+        }
+    } catch (err) {
+        console.log(err);
+
+        res.status(500).json({ message: err.sqlMessage });
+    }
+});
+
+router.get('/:id_endereco_usuario', async (req, res) => {
+    try {
+        const { id_endereco_usuario } = req.params;
+        const [[result]] = await enderecoDB.findById(id_endereco_usuario);
 
         if (result) {
             res.status(200).json(result);

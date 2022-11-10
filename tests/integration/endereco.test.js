@@ -68,6 +68,16 @@ describe('Testando os endpoints de enderecos-usuario', function () {
         expect(response.body).to.deep.equal(enderecoList[0]);
     });
 
+    it('Testando a listagem de endereço pelo id 1', async function () {
+        sinon.stub(connection, 'execute').resolves([[enderecoList[0]]]);
+        const response = await chai
+            .request(app)
+            .get('/enderecos-usuario/1');
+
+        expect(response.status).to.equal(200);
+        expect(response.body).to.deep.equal(enderecoList[0]);
+    });
+
     it('Testando a alteração de um endereço com o id 1', async function () {
         sinon.stub(connection, 'execute').resolves([{ affectedRows: 1 }]);
         const response = await chai
